@@ -1,6 +1,6 @@
 {
   "name": "ng2-vs-checklist",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "x",
   "main": "./dist/umd/ng2-vs-checklist.js",
   "module": "./dist/esm/src/index.js",
