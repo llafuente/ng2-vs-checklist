@@ -2,12 +2,12 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-export class CheckNode {
+export class CheckTreeNode {
   __id: string[];
   id: string;
   label: string;
   selectChildren: boolean;
-  children: CheckNode[];
+  children: CheckTreeNode[];
 };
 
 @Component({
@@ -38,10 +38,10 @@ export class CheckNode {
 })
 
 export class CheckTreeComponent implements OnInit {
-  @Input() nodes: CheckNode[];
+  @Input() nodes: CheckTreeNode[];
   @Input() model: [string];
 
-  applyDefaults(node: CheckNode): void {
+  applyDefaults(node: CheckTreeNode): void {
     if (node.selectChildren) {
       node.__id = this.getChildrenIds(node);
     } else {
@@ -49,7 +49,7 @@ export class CheckTreeComponent implements OnInit {
     }
   }
 
-  getChildrenIds(node: CheckNode): string[] {
+  getChildrenIds(node: CheckTreeNode): string[] {
     var ret: string[] = [];
 
     if (node.id) {
@@ -73,7 +73,7 @@ export class CheckTreeComponent implements OnInit {
     }
   }
 
-  selectChildren(node: CheckNode, recursive: boolean = true): void {
+  selectChildren(node: CheckTreeNode, recursive: boolean = true): void {
     if (!node.children || !node.children.length) return;
 
     for (var i: number = 0; i < node.children.length; ++i) {
