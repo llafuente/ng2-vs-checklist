@@ -4,3 +4,4 @@ node_modules
 coverage
 src/coverage
 npm-debug.log
+dist/
